@@ -11,16 +11,27 @@ import {
   Text,
   View
 } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 import Splash from './Splash';
 import Login from './src/components/Login/Login';
 
-export default class App extends Component{
+/*export default class App extends Component{
   render() {
     return (
         <Login />
     );
   }
-}
+}*/
+
+const Navigation = StackNavigator({
+  Home:{
+    screen:Splash
+  },
+  main: {
+    screen: Login
+  }
+})
+export default Navigation;
 
 /*const styles = StyleSheet.create({
   container: {

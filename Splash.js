@@ -6,6 +6,14 @@ import {
 } from 'react-native';
 
 export default class Splash extends Component {
+    static navigationOptions = {
+        header: null
+    }
+    componentWillMount(){
+        setInterval(()=>{
+            this.props.navigation.navigate('main')
+        },2000)
+    }
     render(){
         return (
             <View style={styles.wrapper}>

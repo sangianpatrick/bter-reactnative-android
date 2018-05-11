@@ -3,30 +3,33 @@ import {
   StyleSheet,
   View,
   Image,
-  Text
+  Text,
+  KeyboardAvoidingView
 } from 'react-native';
+import LoginForm from './LoginForm';
 
 export default class Login extends Component{
+  static navigationOptions = {
+    header: null
+  }
   render() {
     return (
-        <View style={styles.container}>
+        <KeyboardAvoidingView behavior="padding" style={styles.container}>
             <View style={styles.logoContainer}>
                 <Image 
                     style={styles.logo}
                     source={require('../../images/bter-logo.png')} 
                 />
-                <Text>
-                    <Text style={{color: '#fff',fontSize: 15,fontWeight: '200', opacity:0.3}}>bter.</Text>
-                    <Text style={{color: '#000',fontSize: 15,fontWeight: '200', opacity:0.9}}>&nbsp; makes budgeting &nbsp;</Text>
-                    <Text style={{color: '#fff',fontSize: 15,fontWeight: '200', opacity:0.9}}>easier</Text>
+                <Text style={styles.title}>
+                    bter.
                 </Text>
+                
             </View>
             <View style={styles.formContainer}>
-
+                <LoginForm />
             </View>
             
-            
-        </View>
+        </KeyboardAvoidingView>  
     );
   }
 }
@@ -35,6 +38,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#c44569',
+    },
+    title: {
+        color: '#fff',
+        marginTop: 10,
+        width: 160,
+        textAlign: 'center',
+        opacity: 0.9
     },
     logoContainer: {
         alignItems: 'center',
